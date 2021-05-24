@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/screens/authenticate/forms/signupWidget.dart';
 import 'package:kip_app/shared/formConstants.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -26,6 +27,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           ),
           SafeArea(
             child: Container(
+              // height: ,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               child: SingleChildScrollView(
                 child: Column(
@@ -105,10 +107,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     SizedBox(height: 20),
                     Column(
+                      ///[Login Button]
                       children: [
                         ConstrainedBox(
                           constraints: BoxConstraints.tightFor(
-                              height: 50, width: double.maxFinite),
+                            height: 50,
+                            width: double.maxFinite,
+                          ),
                           child: ElevatedButton(
                             onPressed: () => print("Login button pressed"),
                             child: Text("LOGIN"),
@@ -139,18 +144,119 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                     SizedBox(height: 20),
                     Row(
+                      ///[Login Using Fields]
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        //   Divider(
-                        //     thickness: 4.0,
-                        //     color: Colors.black,
-                        //   ),
-                        //   Text("Login Using"),
-                        //   Divider(
-                        //     thickness: 4.0,
-                        //     color: Colors.black,
-                        //   ),
+                        Expanded(
+                          //wrapppng the Divider() widget with the Expanded() widget
+                          //lets it to appear, otherwise not visible.
+                          child: Divider(
+                            thickness: 1.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 15.0),
+                        Text(
+                          "Login Using",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 15.0),
+                        Expanded(
+                          //wrapppng the Divider() widget with the Expanded() widget
+                          //lets it to appear, otherwise not visible.
+                          child: Divider(
+                            thickness: 1.0,
+                            color: Colors.black,
+                          ),
+                        ),
                       ],
                     ),
+                    Row(
+                      ///[Login With Fields]->this rounded icons will contain
+                      ///the icon for the login
+                      ///with [Facebook], [Google], [Twitter] etc.
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children: [
+                        IconButton(
+                          ///[IconButtons] have default padding,
+                          ///so we need to set it to 0.
+                          padding: EdgeInsets.all(0.0),
+                          onPressed: () => print("Blue icon pressed"),
+                          icon: Icon(
+                            Icons.circle,
+                            size: 70.0,
+                            color: Colors.blue[600],
+                          ),
+                        ),
+                        IconButton(
+                          ///[IconButtons] have default padding,
+                          ///so we need to set it to 0.
+                          padding: EdgeInsets.all(0.0),
+                          onPressed: () => print("Yellow icon pressed"),
+                          icon: Icon(
+                            Icons.circle,
+                            size: 70.0,
+                            color: Colors.yellow[800],
+                          ),
+                        ),
+                        IconButton(
+                          ///[IconButtons] have default padding,
+                          ///so we need to set it to 0.
+                          padding: EdgeInsets.all(0.0),
+                          onPressed: () => print("Red icon pressed"),
+                          icon: Icon(
+                            Icons.circle,
+                            size: 70.0,
+                            color: Colors.red[500],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Don't have account?",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.teal,
+                          elevation: 0.0,
+                        ),
+                        onPressed: () {
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20.0),
+                              ),
+                            ),
+                            backgroundColor: Colors.teal[50],
+                            context: context,
+                            isScrollControlled: true,
+                            builder: (context) =>
+                                SafeArea(child: RegisterWidget()),
+                          );
+                        },
+                        child: Text("Register"),
+                      ),
+                    )
                   ],
                 ),
               ),
