@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kip_app/shared/formConstants.dart';
 
 class RegisterWidget extends StatefulWidget {
@@ -81,12 +82,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     children: [
                                       SizedBox(height: 15),
                                       TextFormField(
+                                        ///[Username]
+                                        cursorColor: cursorColor,
+                                        style: TextStyle(color: Colors.white),
+                                        keyboardType: TextInputType.name,
                                         decoration:
-                                            textInputDecoration.copyWith(
+                                            textInputDecorationForSignUpForm
+                                                .copyWith(
                                           hintText: "Name",
-                                          hintStyle: TextStyle(
-                                            color: Colors.white,
-                                          ),
                                           prefixIcon: Icon(
                                             Icons.person,
                                             color: Colors.white,
@@ -96,12 +99,15 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       ),
                                       SizedBox(height: 15),
                                       TextFormField(
+                                        ///[Email Address]
+                                        cursorColor: cursorColor,
+                                        style: TextStyle(color: Colors.white),
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         decoration:
-                                            textInputDecoration.copyWith(
+                                            textInputDecorationForSignUpForm
+                                                .copyWith(
                                           hintText: "Email",
-                                          hintStyle: TextStyle(
-                                            color: Colors.white,
-                                          ),
                                           prefixIcon: Icon(
                                             Icons.mail,
                                             color: Colors.white,
@@ -111,13 +117,16 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       ),
                                       SizedBox(height: 15),
                                       TextFormField(
+                                        ///[Password]
+                                        cursorColor: cursorColor,
+                                        style: TextStyle(color: Colors.white),
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
                                         obscureText: _obscurePassword,
                                         decoration:
-                                            textInputDecoration.copyWith(
+                                            textInputDecorationForSignUpForm
+                                                .copyWith(
                                           hintText: "Password",
-                                          hintStyle: TextStyle(
-                                            color: Colors.white,
-                                          ),
                                           prefixIcon: Icon(
                                             Icons.lock,
                                             color: Colors.white,
@@ -127,12 +136,15 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       ),
                                       SizedBox(height: 15),
                                       TextFormField(
+                                        ///[Confirm password]
+                                        cursorColor: cursorColor,
+                                        style: TextStyle(color: Colors.white),
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
                                         obscureText: _obscurePassword,
                                         decoration:
-                                            textInputDecoration.copyWith(
-                                          hintStyle: TextStyle(
-                                            color: Colors.white,
-                                          ),
+                                            textInputDecorationForSignUpForm
+                                                .copyWith(
                                           hintText: "Confirm Password",
                                           prefixIcon: Icon(
                                             Icons.lock,
@@ -144,6 +156,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       SizedBox(height: 20),
                                       ConstrainedBox(
                                         ///[Register Button]
+
                                         constraints: BoxConstraints.tightFor(
                                           height: 45,
                                           width: double.maxFinite,
