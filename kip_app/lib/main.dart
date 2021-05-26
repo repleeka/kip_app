@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
-import 'package:kip_app/screens/homeWidget.dart/home.dart';
+// import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+import 'package:kip_app/screens/homeWidget/home.dart';
 
 void main() {
   runApp(MyApp());
