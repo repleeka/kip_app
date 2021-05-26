@@ -15,7 +15,6 @@ final textInputDecorationForSignUpForm = InputDecoration(
   hintStyle: TextStyle(
     color: Colors.grey[400],
   ),
-  //TODO:will define more stylings in future.
   focusedBorder: UnderlineInputBorder(
     borderSide: BorderSide(
       color: Colors.white,
@@ -23,7 +22,6 @@ final textInputDecorationForSignUpForm = InputDecoration(
   ),
 );
 final textInputDecorationForSignInForm = InputDecoration(
-  //TODO:will define more stylings in future.
   focusedBorder: UnderlineInputBorder(
     borderSide: BorderSide(
       color: Colors.teal,
