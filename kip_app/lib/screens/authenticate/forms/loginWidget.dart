@@ -1,5 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:kip_app/screens/authenticate/forms/signupWidget.dart';
+// import 'package:kip_app/screens/authenticate/forms/signupWidget.dart';
 import 'package:kip_app/shared/formConstants.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -63,8 +64,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                           children: [
                             SizedBox(height: 15),
                             TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                hintText: "Email",
+                              decoration:
+                                  textInputDecorationForSignInForm.copyWith(
+                                hintText: "Username",
                                 prefixIcon: Icon(
                                   Icons.person,
                                   color: Colors.black,
@@ -75,7 +77,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             SizedBox(height: 15),
                             TextFormField(
                               obscureText: _obscurePassword,
-                              decoration: textInputDecoration.copyWith(
+                              decoration:
+                                  textInputDecorationForSignInForm.copyWith(
                                 hintText: "Password",
                                 prefixIcon: Icon(
                                   Icons.lock,
@@ -96,9 +99,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   },
                                   activeColor: Colors.black,
                                 ),
-                                Text(_obscurePassword
-                                    ? "show password"
-                                    : "hide password"),
+                                Text(
+                                  _obscurePassword
+                                      ? "show password"
+                                      : "hide password",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
                               ],
                             )
                           ],
@@ -132,10 +138,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                           child: TextButton(
                             onPressed: () => print("Forgot password Clicked"),
                             child: Text(
-                              "Forgot password?",
+                              "Forgot password",
                               style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
+                                color: Colors.teal,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
@@ -152,13 +159,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                           //lets it to appear, otherwise not visible.
                           child: Divider(
                             thickness: 1.0,
-                            color: Colors.black,
+                            color: Colors.grey,
                           ),
                         ),
                         SizedBox(width: 15.0),
                         Text(
-                          "Login Using",
+                          "Continue with",
                           style: TextStyle(
+                            color: Colors.grey,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -168,7 +176,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           //lets it to appear, otherwise not visible.
                           child: Divider(
                             thickness: 1.0,
-                            color: Colors.black,
+                            color: Colors.grey,
                           ),
                         ),
                       ],
@@ -180,26 +188,30 @@ class _LoginWidgetState extends State<LoginWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                       children: [
-                        IconButton(
-                          ///[IconButtons] have default padding,
-                          ///so we need to set it to 0.
-                          padding: EdgeInsets.all(0.0),
-                          onPressed: () => print("Blue icon pressed"),
-                          icon: Icon(
-                            Icons.circle,
-                            size: 70.0,
-                            color: Colors.blue[600],
+                        Container(
+                          child: IconButton(
+                            ///[IconButtons] have default padding,
+                            ///so we need to set it to 0.
+                            padding: EdgeInsets.all(0.0),
+                            onPressed: () => print("Blue icon pressed"),
+                            icon: Icon(
+                              Icons.circle,
+                              size: 70.0,
+                              color: Colors.blue[600],
+                            ),
                           ),
                         ),
-                        IconButton(
-                          ///[IconButtons] have default padding,
-                          ///so we need to set it to 0.
-                          padding: EdgeInsets.all(0.0),
-                          onPressed: () => print("Yellow icon pressed"),
-                          icon: Icon(
-                            Icons.circle,
-                            size: 70.0,
-                            color: Colors.yellow[800],
+                        Container(
+                          child: IconButton(
+                            ///[IconButtons] have default padding,
+                            ///so we need to set it to 0.
+                            padding: EdgeInsets.all(0.0),
+                            onPressed: () => print("Yellow icon pressed"),
+                            icon: Icon(
+                              Icons.circle,
+                              size: 70.0,
+                              color: Colors.yellow[800],
+                            ),
                           ),
                         ),
                         IconButton(
@@ -215,48 +227,117 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RichText(
-                        text: TextSpan(
-                          text: "Don't have account?",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.teal,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.teal,
-                          elevation: 0.0,
-                        ),
-                        onPressed: () {
-                          showModalBottomSheet(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20.0),
-                              ),
+                    SizedBox(height: 50),
+                    // Align(
+                    //   alignment: Alignment.bottomCenter,
+                    //   child: RichText(
+                    //     text: TextSpan(
+                    //       text: "Don't have account?",
+                    //       style: TextStyle(
+                    //         color: Colors.black,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //     color: Colors.teal,
+                    //     borderRadius: BorderRadius.circular(10),
+                    //   ),
+                    //   child: ElevatedButton(
+                    //     style: ElevatedButton.styleFrom(
+                    //       primary: Colors.teal,
+                    //       elevation: 0.0,
+                    //     ),
+                    //     onPressed: () {
+                    //       showModalBottomSheet(
+                    //         shape: RoundedRectangleBorder(
+                    //           borderRadius: BorderRadius.vertical(
+                    //             top: Radius.circular(20.0),
+                    //           ),
+                    //         ),
+                    //         backgroundColor: Colors.teal[50],
+                    //         context: context,
+                    //         isScrollControlled: true,
+                    //         builder: (context) =>
+                    //             SafeArea(child: RegisterWidget()),
+                    //       );
+                    //     },
+                    //     child: Text("Register"),
+                    //   ),
+                    // )
+                    RichText(
+                      text: TextSpan(
+                        text: "New to Kip? ",
+                        style: TextStyle(color: Colors.grey[700]),
+                        children: [
+                          TextSpan(
+                            text: "Sign up",
+                            style: TextStyle(
+                              color: Colors.teal,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
                             ),
-                            backgroundColor: Colors.teal[50],
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (context) =>
-                                SafeArea(child: RegisterWidget()),
-                          );
-                        },
-                        child: Text("Register"),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                ///[null check]
+                                ///in order to call method declared
+                                ///which may return a null value,
+                                ///we need to first of ensure that
+                                ///the Dart's sound null safety
+                                ///feature is preserved.
+                                ///
+                                ///To do that we have two options(or may be more..)
+                                /// [01][widget.toggleView?.call();]
+
+                                widget.toggleView?.call();
+
+                                /// [02]Using [if block] for null check
+                                // if (widget.toggleView != null) {
+                                //   widget.toggleView!();
+                                // }
+                                print(
+                                    "onTap recognizer tapped from Login screen");
+
+                                ///TODO: toggle to the Login screen
+                              },
+                          ),
+                        ],
                       ),
-                    )
+                    ),
+                    SizedBox(height: 20),
+                    RichText(
+                      text: TextSpan(
+                        text: "By continuing accound you agree to our\n",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Terms of Service",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.teal,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => print("Terms of Service tapped"),
+                          ),
+                          TextSpan(text: " and "),
+                          TextSpan(
+                            text: "Privacy Policy",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.teal,
+                              decoration: TextDecoration.underline,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => print("Privacy Policy tapped"),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
