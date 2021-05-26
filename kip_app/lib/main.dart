@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+import 'package:kip_app/screens/homeWidget.dart/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ToggleForms(),
+      // home: ToggleForms(),
+      home: Home(),
     );
   }
 }
