@@ -58,6 +58,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           headerSliverBuilder: (context, isScrolled) {
             return [
               SliverAppBar(
+                flexibleSpace: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.greenAccent,
+                        Colors.teal,
+                      ],
+                    ),
+                  ),
+                ),
+
                 /// [bool forceElevated]-> Whether to show the shadow appropriate for the [elevation]
                 /// even if the content is not scrolled under the [AppBar].
                 /// Defaults to false, meaning that the [elevation] is only
@@ -121,6 +132,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               Scaffold(
                 body: Container(
                   color: Colors.teal[100],
+                  // decoration: BoxDecoration(
+                  //   gradient: LinearGradient(
+                  //     colors: [
+                  //       Colors.teal,
+                  //       Colors.red,
+                  //     ],
+                  //   ),
+                  // ),
                   child: Center(
                     child: Text("Text"),
                   ),
