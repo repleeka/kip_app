@@ -26,6 +26,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   ///
   late TabController _tabController;
   late ScrollController _scrollController;
+  int _selectedIndex = 1;
 
   /// Doing so will complain about the non-nullable field.
   /// Since using sound-null safety in new Dart version 2.13;
@@ -41,6 +42,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     /// creates a controller for scrollable widget.
     _scrollController = ScrollController();
+
+    ///[addListeners]->This will allow the on swipe actions from tabBarview
+    ///to be heard from in the tabbar.
+    _tabController.addListener(() {
+      setState(() {
+        _selectedIndex = _tabController.index;
+      });
+      print("$_selectedIndex Tab selected");
+    });
   }
 
   @override
@@ -58,16 +68,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           headerSliverBuilder: (context, isScrolled) {
             return [
               SliverAppBar(
-                flexibleSpace: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Colors.greenAccent,
-                        Colors.teal,
-                      ],
-                    ),
-                  ),
-                ),
+                ///[Setting gradient to the AppBar]
+                // flexibleSpace: Container(
+                //   decoration: BoxDecoration(
+                //     gradient: LinearGradient(
+                //       colors: [
+                //         Colors.greenAccent,
+                //         Colors.teal,
+                //       ],
+                //     ),
+                //   ),
+                // ),
 
                 /// [bool forceElevated]-> Whether to show the shadow appropriate for the [elevation]
                 /// even if the content is not scrolled under the [AppBar].
@@ -81,9 +92,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 pinned: false,
                 snap: true,
                 bottom: TabBar(
+                  labelColor: Colors.white,
+                  indicator: BoxDecoration(
+                    color: Colors.teal[100],
+                    borderRadius: _selectedIndex == 0
+                        ? BorderRadius.only(topRight: Radius.circular(10.0))
+                        : _selectedIndex == 1
+                            ? BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0))
+                            : BorderRadius.only(topLeft: Radius.circular(10.0)),
+                  ),
                   controller: _tabController,
-                  indicatorColor: Colors.white,
-                  indicatorWeight: 4.0,
+                  indicatorColor: Colors.teal[100],
+                  // indicatorWeight: 4.0,
                   indicatorSize: TabBarIndicatorSize.tab,
                   tabs: [
                     ///[Tab]->Creates a material design [TabBar] tab.
@@ -92,18 +114,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     /// be used at the same time. The [iconMargin] is only
                     /// useful when [icon] and either one of [text] or
                     /// [child] is non-null.
-                    Tab(
-                      text: "Community",
-                      // child: Container(color: Colors.teal[50]),
-                    ),
-                    Tab(
-                      text: "Home",
-                      // child: Container(color: Colors.teal[50]),
-                    ),
-                    Tab(
-                      text: "News",
-                      // child: Container(color: Colors.teal[50]),
-                    ),
+                    Tab(text: "Community"),
+                    Tab(text: "Home"),
+                    Tab(text: "News"),
                   ],
                 ),
               ),
@@ -111,7 +124,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           },
           body: TabBarView(
             controller: _tabController,
-            physics: BouncingScrollPhysics(),
             children: [
               Scaffold(
                 body: Container(
@@ -132,14 +144,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               Scaffold(
                 body: Container(
                   color: Colors.teal[100],
-                  // decoration: BoxDecoration(
-                  //   gradient: LinearGradient(
-                  //     colors: [
-                  //       Colors.teal,
-                  //       Colors.red,
-                  //     ],
-                  //   ),
-                  // ),
                   child: Center(
                     child: Text("Text"),
                   ),
@@ -200,8 +204,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       fillColor: Colors.white,
                       hintText: "Search",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
+                          // borderRadius: BorderRadius.circular(10.0),
+                          ),
                     ),
                   ),
                 ),
