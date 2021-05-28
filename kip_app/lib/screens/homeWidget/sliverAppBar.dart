@@ -10,23 +10,21 @@ Widget sliverAppBar(
     ///  applied when the [AppBar] is being displayed over content that is scrolled under it.
     /// When set to true, the [elevation] is applied regardless.
     /// Ignored when [elevation] is zero.
-    backgroundColor: Colors.teal,
+    backgroundColor: tabBarBgColor,
     forceElevated: isScrolled,
     floating: true,
     pinned: false,
     snap: true,
     bottom: TabBar(
-      labelColor: Colors.teal,
-      unselectedLabelColor: Colors.white,
+      labelColor: selectedTabLabelColor,
+      unselectedLabelColor: unSelectedTabLabelColor,
       indicator: BoxDecoration(
-        color: Colors.teal[100],
+        color: tabBgColor,
         borderRadius: selectedIndex == 0
-            ? BorderRadius.only(topRight: Radius.circular(tabRadius))
+            ? topRight
             : selectedIndex == 1
-                ? BorderRadius.only(
-                    topLeft: Radius.circular(tabRadius),
-                    topRight: Radius.circular(tabRadius))
-                : BorderRadius.only(topLeft: Radius.circular(tabRadius)),
+                ? topLR
+                : topLeft,
       ),
       controller: tabController,
       indicatorSize: TabBarIndicatorSize.tab,
