@@ -34,6 +34,7 @@ PreferredSizeWidget appBar() {
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.search,
         onChanged: (value) {
+          ///[Search bar] Here
           //TODO: This will return a showSearch() async function,
           //which will be the original search bar.
           print(value);
