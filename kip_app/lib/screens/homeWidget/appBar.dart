@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/shared/appBarConstants.dart';
 
-Widget appBar() {
+PreferredSizeWidget appBar() {
   ///[the Actual AppBar]
   ///this is the actual appbar that users will see.
   ///The SliverAppBar above will slide the TabBar underneath this appBar
@@ -10,7 +11,7 @@ Widget appBar() {
     ///This appBar is on top of the SliverAppBar.
     automaticallyImplyLeading: true,
     elevation: 0,
-    backgroundColor: Colors.teal,
+    backgroundColor: tabBarBgColor,
     leading: Builder(
       builder: (context) => IconButton(
         //due to this method I will be able to change the Icon of the Drawer()
