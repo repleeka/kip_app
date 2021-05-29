@@ -50,13 +50,5 @@ PreferredSizeWidget appBar() {
         ),
       ),
     ),
-    actions: [
-      ///[Actions]
-      IconButton(
-        ///[Star IconButton]
-        icon: Icon(Icons.grade_outlined),
-        onPressed: () => print("Icon pressed"),
-      )
-    ],
   );
 }
