@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+// import 'package:kip_app/demo/demoTabBar.dart';
 import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+import 'package:kip_app/screens/homeWidget/drawer.dart';
+import 'package:kip_app/screens/homeWidget/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +17,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ToggleForms(),
+
+      ///here the home: property will have Wrapper class as it will choose between
+      ///Authentication and The main UI of the app.
+      ///
+      home: Scaffold(
+        drawer: DrawerWidget(),
+        // body: ToggleForms(),
+        body: Home(),
+      ),
     );
   }
 }
