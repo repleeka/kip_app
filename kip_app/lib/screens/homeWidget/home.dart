@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kip_app/screens/homeWidget/appBar.dart';
 import 'package:kip_app/screens/homeWidget/sliverAppBar.dart';
+import 'package:kip_app/shared/gradientConstants.dart';
 
 ///this class will be visible only if the login or registeration is done.
 
@@ -40,7 +41,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     /// [{TickerProvider vsync}] -> creates an object that manages the state required
     /// by the [TabBar] and the [TabBarView]
     ///initialIndex sets the default tab to be opened.
-    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
+    _tabController =
+        TabController(length: 3, vsync: this, initialIndex: _selectedIndex);
 
     /// creates a controller for scrollable widget.
     _scrollController = ScrollController();
@@ -64,18 +66,23 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final double _extendedHeight = kToolbarHeight * 4 - 34;
+
     return Stack(
       children: [
         NestedScrollView(
           headerSliverBuilder: (context, isScrolled) {
-            return [sliverAppBar(isScrolled, _selectedIndex, _tabController)];
+            return [
+              sliverAppBar(
+                  isScrolled, _selectedIndex, _tabController, _extendedHeight)
+            ];
           },
           body: TabBarView(
             controller: _tabController,
             children: [
               Scaffold(
                 body: Container(
-                  color: Colors.teal[100],
+                  color: Colors.white,
                   child: Center(
                     child: Text(
                       "Text",
@@ -89,7 +96,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               Scaffold(
                 body: Container(
-                  color: Colors.teal[100],
+                  color: Colors.white,
                   child: Center(
                     child: Text(
                       "Text",
@@ -103,7 +110,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               Scaffold(
                 body: Container(
-                  color: Colors.teal[100],
+                  color: Colors.white,
                   child: Center(
                     child: Text(
                       "Text",
@@ -127,9 +134,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           left: 0.0,
           right: 0.0,
           child: Container(
+            decoration: BoxDecoration(
+              gradient: horizontalGradient,
+            ),
             child: SafeArea(
               top: false,
-              child: appBar(),
+              child: appBar(context),
             ),
           ),
         ),
