@@ -4,7 +4,6 @@ import 'package:kip_app/shared/appBarConstants.dart';
 import 'package:kip_app/shared/gradientConstants.dart';
 
 Widget searchBar() {
-  var textInputDecoration;
   return TextField(
     ///FIXME: To pass the value from the inputkeyboard to showSearch()
     ///use [TextEditingController].
@@ -16,7 +15,7 @@ Widget searchBar() {
       //which will be the original search bar.
       print(value);
     },
-    decoration: textInputDecoration.copyWith(
+    decoration: InputDecoration(
       ///[InputDecoration]
       prefixIcon: Icon(Icons.search),
       isDense: true,
