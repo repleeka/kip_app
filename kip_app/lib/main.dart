@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+// import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
 import 'package:kip_app/screens/homeWidget/drawer.dart';
-// import 'package:kip_app/screens/homeWidget/home.dart';
+import 'package:kip_app/screens/homeWidget/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       ///
       home: Scaffold(
         drawer: DrawerWidget(),
-        body: ToggleForms(),
-        // body: Home(),
+        // body: ToggleForms(),
+        body: Home(),
         // body: ABar(),
       ),
     );

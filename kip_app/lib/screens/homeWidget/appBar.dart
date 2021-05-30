@@ -13,7 +13,13 @@ PreferredSizeWidget appBar(BuildContext context) {
     ///This appBar is on top of the SliverAppBar.
     backgroundColor: Colors.transparent,
     elevation: 0.0,
-    title: Text("kip app"),
+    title: Text(
+      "Kip App",
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: kToolbarHeight * 0.5,
+      ),
+    ),
     centerTitle: true,
     leading: IconButton(
       padding: EdgeInsets.all(0.0),
