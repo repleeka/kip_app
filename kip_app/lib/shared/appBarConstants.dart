@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 ///[A container for the appBar variable definition.]
 
-const double tabRadius = 10.0;
+const double tabRadius = 25.0;
 const Color selectedTabLabelColor = Colors.teal;
-final Color tabBgColor = Colors.teal[100]!;
+final Color tabBgColor = Colors.white;
 const Color unSelectedTabLabelColor = Colors.white;
 const Color tabBarBgColor = Colors.teal;
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:kip_app/demo/demoTabBar.dart';
-import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+// import 'package:kip_app/demo/demoSliverAppbar.dart';
+// import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
 import 'package:kip_app/screens/homeWidget/drawer.dart';
 import 'package:kip_app/screens/homeWidget/home.dart';
 
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         drawer: DrawerWidget(),
         // body: ToggleForms(),
         body: Home(),
+        // body: ABar(),
       ),
     );
   }
