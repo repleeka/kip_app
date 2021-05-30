@@ -34,6 +34,7 @@ class _DemoState extends State<Demo> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Scaffold(
         body: TabBarView(
           controller: _tabController,
