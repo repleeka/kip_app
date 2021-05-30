@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 // import 'package:kip_app/screens/authenticate/forms/signupWidget.dart';
 import 'package:kip_app/shared/formConstants.dart';
+import 'package:kip_app/shared/gradientConstants.dart';
 
 class LoginWidget extends StatefulWidget {
   ///The toggling functionlities will be used to toggle between the
@@ -24,7 +25,8 @@ class _LoginWidgetState extends State<LoginWidget> {
       body: Stack(
         children: <Widget>[
           Container(
-            color: Colors.teal[50],
+            color: Colors.white,
+            // color: Colors.teal[50],
           ),
           SafeArea(
             child: Container(
@@ -67,9 +69,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                               decoration:
                                   textInputDecorationForSignInForm.copyWith(
                                 hintText: "Username",
+                                hintStyle: TextStyle(color: Colors.grey),
                                 prefixIcon: Icon(
                                   Icons.person,
-                                  color: Colors.black,
+                                  color: Colors.teal,
                                 ),
                               ),
                               onChanged: (value) => print(value),
@@ -79,10 +82,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                               obscureText: _obscurePassword,
                               decoration:
                                   textInputDecorationForSignInForm.copyWith(
+                                hintStyle: TextStyle(color: Colors.grey),
                                 hintText: "Password",
                                 prefixIcon: Icon(
                                   Icons.lock,
-                                  color: Colors.black,
+                                  color: Colors.teal,
                                 ),
                               ),
                               onChanged: (value) => print(value),
@@ -90,6 +94,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                             Row(
                               children: [
                                 Checkbox(
+                                  checkColor: Colors.white,
+                                  side: BorderSide(
+                                      color: Colors.teal, width: 2.0),
                                   value: !_obscurePassword,
                                   onChanged: (value) {
                                     setState(
@@ -97,7 +104,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           _obscurePassword = !_obscurePassword,
                                     );
                                   },
-                                  activeColor: Colors.black,
+                                  activeColor: Colors.teal,
                                 ),
                                 Text(
                                   _obscurePassword
@@ -115,19 +122,23 @@ class _LoginWidgetState extends State<LoginWidget> {
                     Column(
                       ///[Login Button]
                       children: [
-                        ConstrainedBox(
-                          constraints: BoxConstraints.tightFor(
-                            height: 50,
-                            width: double.maxFinite,
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: horizontalGradient,
+                            borderRadius: BorderRadius.circular(20.0),
                           ),
-                          child: ElevatedButton(
-                            onPressed: () => print("Login button pressed"),
-                            child: Text("LOGIN"),
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.teal,
-                              elevation: 0.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints.tightFor(
+                              height: 50,
+                              width: double.maxFinite,
+                            ),
+                            child: ElevatedButton(
+                              onPressed: () => print("Login button pressed"),
+                              child: Text("LOGIN"),
+                              style: ElevatedButton.styleFrom(
+                                shadowColor: Colors.transparent,
+                                primary: Colors.transparent,
+                                elevation: 0.0,
                               ),
                             ),
                           ),
@@ -173,7 +184,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         SizedBox(width: 15.0),
                         Expanded(
                           //wrapppng the Divider() widget with the Expanded() widget
-                          //lets it to appear, otherwise not visible.
+                          //lets it to appear, otherwise it is not visible.
                           child: Divider(
                             thickness: 1.0,
                             color: Colors.grey,

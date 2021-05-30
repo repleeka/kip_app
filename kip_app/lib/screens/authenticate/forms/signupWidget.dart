@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kip_app/shared/formConstants.dart';
+import 'package:kip_app/shared/gradientConstants.dart';
 
 class RegisterWidget extends StatefulWidget {
   final Function? toggleView;
@@ -27,7 +28,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         body: Stack(
           children: <Widget>[
             Container(
-              color: Colors.teal[50],
+              // color: Colors.teal[50],
+              color: Colors.white,
             ),
             SafeArea(
               child: SingleChildScrollView(
@@ -61,8 +63,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       Container(
                         padding: EdgeInsets.all(16.0),
                         decoration: BoxDecoration(
+                          gradient: horizontalGradient,
                           borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.teal,
+                          // color: Colors.teal,
                         ),
                         child: Column(
                           children: [
