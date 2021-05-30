@@ -44,16 +44,27 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           children: [
                             CircleAvatar(
                               ///This will containe the Company [Logo]
-                              backgroundColor: Colors.teal,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(60.0),
+                                  gradient: horizontalGradient,
+                                ),
+                              ),
+
+                              backgroundColor: Colors.white,
                               radius: 60.0,
+                              foregroundImage:
+                                  AssetImage("lib/assets/image/kiplogo02.png"),
                             ),
                             Text(
                               ///This will contain the Company [Name]
                               "kip",
                               style: TextStyle(
-                                color: Colors.teal,
+                                // color: Colors.teal,
+                                foreground: Paint()
+                                  ..shader = kipTextLogoGradientColor,
                                 fontSize: 40.0,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
@@ -72,10 +83,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             Column(
                               children: [
                                 Text(
-                                  "Create an account\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t&\n\t\t\t\t\t\tGet Started",
+                                  "Create an account\n\t\t\t\t\t\t\t\t\t\t\t\t\t&\n\t\t\t\t\tGet Started",
                                   style: TextStyle(
                                     color: Colors.white,
                                     // fontWeight: FontWeight.bold,
+                                    fontFamily: 'Espera',
+                                    // fontStyle: FontStyle.normal,
                                     fontSize: 30,
                                   ),
                                 ),
@@ -171,6 +184,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                             "Register",
                                             style: TextStyle(
                                               color: Colors.teal,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                           style: ElevatedButton.styleFrom(

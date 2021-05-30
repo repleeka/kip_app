@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:kip_app/demo/demoSliverAppbar.dart';
-// import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
 import 'package:kip_app/screens/homeWidget/drawer.dart';
-import 'package:kip_app/screens/homeWidget/home.dart';
+// import 'package:kip_app/screens/homeWidget/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
+        fontFamily: 'Espera',
       ),
 
       ///here the home: property will have Wrapper class as it will choose between
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       ///
       home: Scaffold(
         drawer: DrawerWidget(),
-        // body: ToggleForms(),
-        body: Home(),
+        body: ToggleForms(),
+        // body: Home(),
         // body: ABar(),
       ),
     );

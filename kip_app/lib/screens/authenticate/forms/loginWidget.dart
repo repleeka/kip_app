@@ -42,16 +42,27 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           CircleAvatar(
                             ///This will containe the Company [Logo]
-                            backgroundColor: Colors.teal,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(60.0),
+                                gradient: horizontalGradient,
+                              ),
+                            ),
+
+                            backgroundColor: Colors.white,
                             radius: 60.0,
+                            foregroundImage:
+                                AssetImage("lib/assets/image/kiplogo02.png"),
                           ),
                           Text(
                             ///This will contain the Company [Name]
                             "kip",
                             style: TextStyle(
-                              color: Colors.teal,
+                              // color: Colors.white,
                               fontSize: 40.0,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.bold,
+                              foreground: Paint()
+                                ..shader = kipTextLogoGradientColor,
                             ),
                           ),
                         ],
@@ -134,7 +145,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                             ),
                             child: ElevatedButton(
                               onPressed: () => print("Login button pressed"),
-                              child: Text("LOGIN"),
+                              child: Text(
+                                "LOGIN",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                               style: ElevatedButton.styleFrom(
                                 shadowColor: Colors.transparent,
                                 primary: Colors.transparent,
