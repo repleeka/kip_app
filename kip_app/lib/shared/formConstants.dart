@@ -13,9 +13,14 @@ final cursorColor = Colors.white;
 ///Decoration constant for the [FormFields]
 final textInputDecorationForSignUpForm = InputDecoration(
   hintStyle: TextStyle(
-    color: Colors.grey[400],
+    color: Colors.grey[200],
   ),
   focusedBorder: UnderlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.white,
+    ),
+  ),
+  enabledBorder: UnderlineInputBorder(
     borderSide: BorderSide(
       color: Colors.white,
     ),
@@ -23,6 +28,11 @@ final textInputDecorationForSignUpForm = InputDecoration(
 );
 final textInputDecorationForSignInForm = InputDecoration(
   focusedBorder: UnderlineInputBorder(
+    borderSide: BorderSide(
+      color: Colors.teal,
+    ),
+  ),
+  enabledBorder: UnderlineInputBorder(
     borderSide: BorderSide(
       color: Colors.teal,
     ),
