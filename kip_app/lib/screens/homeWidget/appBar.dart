@@ -23,9 +23,15 @@ PreferredSizeWidget appBar(BuildContext context) {
     centerTitle: true,
     leading: IconButton(
       padding: EdgeInsets.all(0.0),
-      icon: Icon(
-        Icons.account_circle_rounded,
-        size: kToolbarHeight * 0.7,
+      // icon: Icon(
+      //   Icons.account_circle_rounded,
+      //   size: kToolbarHeight * 0.7,
+      // ),
+      icon: Image(
+        color: Colors.white,
+        image: AssetImage("lib/assets/image/kiplogo02.png"),
+        height: kToolbarHeight * 0.7,
+        width: kToolbarHeight * 0.7,
       ),
       onPressed: () => Scaffold.of(context).openDrawer(),
     ),
