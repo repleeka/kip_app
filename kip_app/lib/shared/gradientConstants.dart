@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 ///[Color gradients]
 final Shader kipTextLogoGradientColor = LinearGradient(
+  //Linear gradient for Texts.
   colors: <Color>[
     Color(0xFF00D2A1),
     Colors.teal,
   ],
-).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
+).createShader(
+  Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+);
 final Gradient verticalGradient = LinearGradient(
   colors: [
     // Colors.tealAccent[400]!,
