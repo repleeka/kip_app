@@ -21,6 +21,19 @@ class DrawerWidget extends StatelessWidget {
             child: Column(
               ///[Drawer's Column]
               children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      print("Cancel button pressed");
+                    },
+                    icon: Icon(
+                      Icons.cancel_outlined,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
                 Container(
                   padding: const EdgeInsets.only(top: 32.0),
 
