@@ -45,16 +45,21 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             CircleAvatar(
                               ///This will containe the Company [Logo]
                               child: Container(
+                                child: Image(
+                                  color: Colors.white,
+                                  image: AssetImage(
+                                      "lib/assets/image/kiplogo02.png"),
+                                ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(60.0),
                                   gradient: horizontalGradient,
                                 ),
                               ),
 
-                              backgroundColor: Colors.white,
+                              // backgroundColor: Colors.white,
                               radius: 60.0,
-                              foregroundImage:
-                                  AssetImage("lib/assets/image/kiplogo02.png"),
+                              // foregroundImage:
+                              //     AssetImage("lib/assets/image/kiplogo02.png"),
                             ),
                             Text(
                               ///This will contain the Company [Name]

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
-import 'package:kip_app/screens/homeWidget/drawer.dart';
-import 'package:kip_app/screens/homeWidget/home.dart';
-import 'package:kip_app/screens/premiumWidget/premium_drawer.dart';
+import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
+// import 'package:kip_app/screens/homeWidget/drawer.dart';
+// import 'package:kip_app/screens/homeWidget/home.dart';
+// import 'package:kip_app/screens/premiumWidget/premium_drawer.dart';
 // import 'package:kip_app/screens/premiumWidget/premium_home.dart';
 
 void main() {
@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
       ///Authentication and The main UI of the app.
       ///
       home: Scaffold(
-        drawer: DrawerWidget(),
+        // drawer: DrawerWidget(),
         // drawer: DrawerWidgetPremium(),
-        // body: ToggleForms(),
-        body: Home(),
+        body: ToggleForms(),
+        // body: Home(),
         // body: PremiumHome(),
       ),
     );
