@@ -8,6 +8,9 @@ final Color tabBgColor = Colors.white;
 const Color unSelectedTabLabelColor = Colors.white;
 const Color tabBarBgColor = Colors.teal;
 
+///[main Padding]
+final EdgeInsets mainPadding = const EdgeInsets.all(16.0);
+
 ///[Border Radius Constants]
 const BorderRadiusGeometry topRight =
     BorderRadius.only(topRight: Radius.circular(tabRadius));
