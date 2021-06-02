@@ -15,7 +15,10 @@ Widget searchBar() {
     },
     decoration: InputDecoration(
       ///[InputDecoration]
-      prefixIcon: Icon(Icons.search),
+      prefixIcon: Icon(
+        Icons.search,
+        color: selectedTabLabelColorPremium,
+      ),
       isDense: true,
       filled: true,
       fillColor: Colors.white,
