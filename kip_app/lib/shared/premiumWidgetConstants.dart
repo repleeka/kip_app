@@ -5,6 +5,7 @@ const double tabRadius = 25.0;
 const Color selectedTabLabelColorPremium = Color(0xFFEF90A8);
 const Color tabBgColorPremium = Colors.white;
 const Color unSelectedTabLabelColoPremium = Colors.white;
+const Color appBarColorPremium = Color(0xFFF59496);
 
 ///[Premium Border Radius Constants]
 const BorderRadiusGeometry allRadius =
