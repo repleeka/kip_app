@@ -68,11 +68,12 @@ class _PremiumHomeState extends State<PremiumHome>
   @override
   Widget build(BuildContext context) {
     final double _extendedHeight = kToolbarHeight * 4 - 34;
-    final EdgeInsets mainPadding = const EdgeInsets.all(16.0);
+    final EdgeInsets mainPadding = const EdgeInsets.all(0.0);
 
     return Stack(
       children: [
         Container(
+          ///For the gradient color of whole app background.
           decoration: BoxDecoration(
             gradient: verticalGradientPremium,
           ),
@@ -89,51 +90,92 @@ class _PremiumHomeState extends State<PremiumHome>
             body: TabBarView(
               controller: _tabController,
               children: [
-                Scaffold(
-                  backgroundColor: Colors.transparent,
-                  body: Container(
-                    // color: Colors.transparent,
-                    child: Center(
-                      child: Text(
-                        "Community",
-                        style: TextStyle(
+                ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  // primary: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8, bottom: 8, right: 20, left: 20),
+                      child: Container(
+                        height: 200,
+                        width: 300,
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Community",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
-                Scaffold(
-                  backgroundColor: Colors.transparent,
-                  body: Container(
-                    child: Center(
-                      child: Text(
-                        "Home",
-                        style: TextStyle(
+                ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  // primary: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8, bottom: 8, right: 20, left: 20),
+                      child: Container(
+                        height: 200,
+                        width: 300,
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Home",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
-                Scaffold(
-                  backgroundColor: Colors.transparent,
-                  body: Container(
-                    child: Center(
-                      child: Text(
-                        "News",
-                        style: TextStyle(
+                ListView.builder(
+                  itemCount: 10,
+                  shrinkWrap: true,
+                  // primary: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          top: 8, bottom: 8, right: 20, left: 20),
+                      child: Container(
+                        height: 200,
+                        width: 300,
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "News",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -148,7 +190,6 @@ class _PremiumHomeState extends State<PremiumHome>
           left: 0.0,
           right: 0.0,
           child: Container(
-            padding: mainPadding,
             color: Colors.transparent,
             child: SafeArea(
               top: false,
