@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/shared/appBarConstants.dart';
 import 'package:kip_app/shared/premiumWidgetConstants.dart';
 
 Widget searchBar() {
@@ -60,6 +61,10 @@ Widget sliverAppBarPremium(bool isScrolled, int selectedIndex,
       preferredSize: Size(double.infinity, kToolbarHeight),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          // gradient: verticalGradientPremium,
+          color: appBarColorPremium,
+        ),
         child: TabBar(
           controller: tabController,
           labelColor: selectedTabLabelColorPremium,
@@ -80,6 +85,7 @@ Widget sliverAppBarPremium(bool isScrolled, int selectedIndex,
     ),
     flexibleSpace: FlexibleSpaceBar(
       background: Container(
+        color: appBarColorPremium,
         child: Align(
           alignment: Alignment.center,
           child: Padding(
