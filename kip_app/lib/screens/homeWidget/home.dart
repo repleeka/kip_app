@@ -70,6 +70,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
     return Stack(
       children: [
+        Container(
+          color: Colors.white,
+        ),
         NestedScrollView(
           headerSliverBuilder: (context, isScrolled) {
             return [
@@ -80,47 +83,92 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           body: TabBarView(
             controller: _tabController,
             children: [
-              Scaffold(
-                body: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "Text",
-                      style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
+              ListView.builder(
+                itemCount: 10,
+                shrinkWrap: true,
+                // primary: true,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8, bottom: 8, right: 20, left: 20),
+                    child: Container(
+                      height: 200,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Community",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
-              Scaffold(
-                body: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "Text",
-                      style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
+              ListView.builder(
+                itemCount: 10,
+                shrinkWrap: true,
+                // primary: true,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8, bottom: 8, right: 20, left: 20),
+                    child: Container(
+                      height: 200,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Home",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
-              Scaffold(
-                body: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "Text",
-                      style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
+              ListView.builder(
+                itemCount: 10,
+                shrinkWrap: true,
+                // primary: true,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8, bottom: 8, right: 20, left: 20),
+                    child: Container(
+                      height: 200,
+                      width: 300,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "News",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
             ],
           ),
