@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/shared/premiumWidgetConstants.dart';
 import 'package:kip_app/shared/superScriptText.dart';
 
 PreferredSizeWidget appBarPremium(BuildContext context) {
@@ -12,8 +13,13 @@ PreferredSizeWidget appBarPremium(BuildContext context) {
   return AppBar(
     ///[OnTop AppBar]
     ///This appBar is on top of the SliverAppBar.
-    backgroundColor: Colors.transparent,
+    backgroundColor: appBarColorPremium,
     elevation: 0.0,
+    flexibleSpace: Container(
+      decoration: BoxDecoration(
+        gradient: horizontalGradientPremium,
+      ),
+    ),
 
     ///[automaticallyImplyLeading: false]-> this will hide the hamburger icons
     ///from the appBar or the sliverAppBar if both are implemented.
