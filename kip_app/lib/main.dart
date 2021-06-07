@@ -24,11 +24,16 @@ class MyApp extends StatelessWidget {
       ///Authentication and The main UI of the app.
       ///
       home: Scaffold(
-        drawer: DrawerWidget(),
-        // drawer: DrawerWidgetPremium(),
-        // body: ToggleForms(),
-        body: Home(),
+        ///for [permium] screens enable the following widgets:
         // body: PremiumHome(),
+        // drawer: DrawerWidgetPremium(),
+
+        ///for the [Login/Register] screens enable the follwing widget:
+        // body: ToggleForms(),
+
+        ///for [normal (non-premium screens)] enable the following widgets:
+        body: Home(),
+        drawer: DrawerWidget(),
       ),
     );
   }
