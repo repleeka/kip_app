@@ -114,14 +114,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   );
                 },
               ),
-              Course(
-                authorName: 'Dr.Angela Yu',
-                isBestseller: true,
-                imageLink: 'lib/assets/image/02.png',
-                rating: '4.3',
-                courseTitle:
-                    'The Complete 2021 Python Development Bootcamp for the future data scientists',
-              ),
+              HomeCards(),
+              // Course(
+              //   courseTitle:
+              //       '30Dadys Flutter tutorial for beginners and expersts',
+              //   authorName: 'tungon dugi',
+              //   imageLink: 'lib/assets/image/02.png',
+              //   rating: '4.5',
+              //   isBestseller: true,
+              // ),
               ListView.builder(
                 itemCount: 10,
                 shrinkWrap: true,
