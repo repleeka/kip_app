@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/screens/cards/courseCards/insideCourse.dart';
 
 ///`Course Card UI`
 class Course extends StatelessWidget {
@@ -13,16 +14,34 @@ class Course extends StatelessWidget {
       required this.imageLink,
       required this.rating,
       required this.isBestseller});
+
+  // Widget _cards() {
+  //   return Card(
+  //     child: Column(
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: <Widget>[
+  //         const ListTile(
+  //           // leading: Icon(Icons.album, size: 45),
+  //           title: Text('Sonu Nigam'),
+  //           subtitle: Text('Best of Sonu Nigam Song'),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         print("Course Cards tapped");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => InsideCourse()));
       },
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
+      child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               child: AspectRatio(
@@ -46,7 +65,7 @@ class Course extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: '\n$authorName',
+                        text: '\nDr.${authorName.toUpperCase()}',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 15,
@@ -71,6 +90,15 @@ class Course extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 10),
+            Text(
+              'Rs.450.00',
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(height: 10),
             isBestseller
                 ? Container(
                     // padding: EdgeInsets.all(8),
