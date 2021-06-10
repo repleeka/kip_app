@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/screens/cards/courseCards/courseCards.dart';
+import 'package:kip_app/screens/cards/homeCard.dart';
 import 'package:kip_app/screens/homeWidget/appBar.dart';
 import 'package:kip_app/screens/homeWidget/sliverAppBar.dart';
 import 'package:kip_app/shared/gradientConstants.dart';
@@ -112,34 +114,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   );
                 },
               ),
-              ListView.builder(
-                itemCount: 10,
-                shrinkWrap: true,
-                // primary: true,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                        top: 8, bottom: 8, right: 20, left: 20),
-                    child: Container(
-                      height: 200,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Home",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
+              Course(
+                authorName: 'Dr.Angela Yu',
+                isBestseller: true,
+                imageLink: 'lib/assets/image/02.png',
+                rating: '4.3',
+                courseTitle:
+                    'The Complete 2021 Python Development Bootcamp for the future data scientists',
               ),
               ListView.builder(
                 itemCount: 10,
