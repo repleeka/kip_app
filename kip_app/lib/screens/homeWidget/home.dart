@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/screens/cards/courseCards/courseCards.dart';
+import 'package:kip_app/screens/cards/homeCard.dart';
 import 'package:kip_app/screens/homeWidget/appBar.dart';
 import 'package:kip_app/screens/homeWidget/sliverAppBar.dart';
 import 'package:kip_app/shared/gradientConstants.dart';
@@ -94,19 +96,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                 ),
               ),
-              Scaffold(
-                body: Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text(
-                      "Text",
-                      style: TextStyle(
-                        fontSize: 60,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+              Course(
+                authorName: 'Dr.Angela Yu',
+                isBestseller: true,
+                imageLink: 'lib/assets/image/02.png',
+                rating: '4.3',
+                courseTitle:
+                    'The Complete 2021 Python Development Bootcamp for the future data scientists',
               ),
               Scaffold(
                 body: Container(
