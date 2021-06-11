@@ -23,6 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  video_player: ^2.1.6
+  chewie: ^1.2.2
 
 
 
