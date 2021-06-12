@@ -1,6 +1,7 @@
 #Demo Codes
 lib/demo/**
 lib/demo/demoTabBar.dart
+lib/assets/videos
 
 # Miscellaneous
 *.class
