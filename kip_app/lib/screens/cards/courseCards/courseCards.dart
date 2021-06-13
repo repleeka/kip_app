@@ -3,40 +3,49 @@ import 'package:kip_app/screens/cards/courseCards/insideCourse.dart';
 
 ///`Course Card UI`
 class Course extends StatelessWidget {
-  final String imageLink;
   final String courseTitle;
+  final String imageLink;
   final String authorName;
-  final String rating;
+  final double rating;
   final bool isBestseller;
-  Course(
-      {required this.courseTitle,
-      required this.authorName,
-      required this.imageLink,
-      required this.rating,
-      required this.isBestseller});
 
-  // Widget _cards() {
-  //   return Card(
-  //     child: Column(
-  //       mainAxisSize: MainAxisSize.min,
-  //       children: <Widget>[
-  //         const ListTile(
-  //           // leading: Icon(Icons.album, size: 45),
-  //           title: Text('Sonu Nigam'),
-  //           subtitle: Text('Best of Sonu Nigam Song'),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
+  ///Followings will be passed down to the inside course widget
+  final String courseDescripttion;
+  // final bool isBestseller;
+  final double courseAmount;
+  final String videoAssetPath;
+  final String courseLanguage;
+  Course({
+    required this.courseTitle,
+    required this.courseDescripttion,
+    required this.authorName,
+    required this.imageLink,
+    required this.rating,
+    required this.isBestseller,
+    required this.courseAmount,
+    required this.videoAssetPath,
+    required this.courseLanguage,
+  });
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         print("Course Cards tapped");
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => InsideCourse()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => InsideCourse(
+              courseTitle: courseTitle,
+              courseDescription: courseDescripttion,
+              isBestSeller: isBestseller,
+              rating: rating,
+              authorName: authorName,
+              courseAmount: courseAmount,
+              videoAssetPath: videoAssetPath,
+              courseLanguage: courseLanguage,
+            ),
+          ),
+        );
       },
       child: Card(
         child: Column(
