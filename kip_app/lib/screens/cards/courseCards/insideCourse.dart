@@ -1,6 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:kip_app/shared/videoPlayer/my_video_player.dart';
+import 'package:video_player/video_player.dart';
 
 class InsideCourse extends StatefulWidget {
+  final String courseTitle;
+  final String courseDescription;
+  final bool isBestSeller;
+  final double rating;
+  final String authorName;
+  final String courseLanguage;
+  final String videoAssetPath;
+  final double courseAmount;
+  InsideCourse({
+    required this.courseTitle,
+    required this.courseDescription,
+    required this.isBestSeller,
+    required this.rating,
+    required this.authorName,
+    required this.courseLanguage,
+    required this.videoAssetPath,
+    required this.courseAmount,
+  });
   @override
   _InsideCourseState createState() => _InsideCourseState();
 }
@@ -13,6 +33,9 @@ class _InsideCourseState extends State<InsideCourse> {
     _scrollController = ScrollController();
     super.initState();
   }
+
+  bool bought = false;
+  bool addedToCart = false;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +74,7 @@ class _InsideCourseState extends State<InsideCourse> {
             children: [
               Text(
                 ///[Course Title]
-                "The Complete 2021 Python Web Development Bootcamp with Django",
+                widget.courseTitle,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 30.0,
@@ -64,38 +87,41 @@ class _InsideCourseState extends State<InsideCourse> {
               ),
               Text(
                 ///[Course Details]
-                "Become a full-stack Python Django Developer with just one course. HTML,CSS,JavaScript,Django,MongoDB and more!",
+                widget.courseDescription,
                 style: TextStyle(
                   fontSize: 25,
                   fontFamily: 'Segoe',
                 ),
               ),
               SizedBox(height: 10),
-              Container(
-                ///[BestSeller]
-                decoration: BoxDecoration(
-                  color: Colors.amber[200],
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                height: kToolbarHeight - 10,
-                width: kTextTabBarHeight + 60,
-                child: Center(
-                  child: Text(
-                    'Bestseller',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
+              widget.isBestSeller
+                  ? Container(
+                      ///[BestSeller]
+                      decoration: BoxDecoration(
+                        color: Colors.amber[200],
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      height: kToolbarHeight - 10,
+                      width: kTextTabBarHeight + 60,
+                      child: Center(
+                        child: Text(
+                          'Bestseller',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  : SizedBox(),
               SizedBox(height: 10),
               Row(
                 children: [
                   Text(
                     ///[Rating]
-                    '4.7', style: TextStyle(fontSize: 20),
+                    ///TODO: Do more on rating system, may be an animation?
+                    "${widget.rating}", style: TextStyle(fontSize: 20),
                   ),
                   Icon(Icons.star, color: Colors.amber),
                   Icon(Icons.star, color: Colors.amber),
@@ -118,7 +144,7 @@ class _InsideCourseState extends State<InsideCourse> {
                     children: [
                       TextSpan(text: 'Created by: '),
                       TextSpan(
-                        text: 'Dr.Tungon Prashad',
+                        text: widget.authorName,
                         style: TextStyle(
                           color: Colors.blue,
                         ),
@@ -128,7 +154,7 @@ class _InsideCourseState extends State<InsideCourse> {
               SizedBox(height: 10),
               Text(
                 ///[Language of the Course]
-                'Language: English',
+                'Language: ${widget.courseLanguage}',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -136,69 +162,110 @@ class _InsideCourseState extends State<InsideCourse> {
                 ),
               ),
               SizedBox(height: 10),
-              Container(
-                ///[Intro Video Here]
-                ///You can make a widget for the video player and price and
-                ///the buynow and add to cart widgets.
-                color: Colors.black,
+              AspectRatio(
+                aspectRatio: 16 / 9,
+                child: MyVideoPlayer(
 
-                child: AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Image(
-                    image: AssetImage('lib/assets/image/02.png'),
-                    fit: BoxFit.fill,
-                  ),
-                ),
+                    ///[VideoPlayer]
+                    videoPlayerController:
+                        VideoPlayerController.asset(widget.videoAssetPath)),
               ),
               SizedBox(height: 10),
               Text(
                 ///[Amount of the Course]
-                '\u20B9 450',
+                '\u20B9 ${widget.courseAmount}',
                 style: TextStyle(
                   fontSize: 30,
                   fontFamily: 'Segoe',
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Column(
-                ///[Buy Now and Add to Cart Buttons]
-                ///although Column is not required here I have added for simplicity.
-                children: [
-                  Container(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () => print('Buying now'),
-                      child: Text(
-                        'Buy Now',
-                        style: TextStyle(
-                          fontFamily: 'Segoe',
+              bought
+                  ? Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        child: Text(
+                          'Bought',
+                          style: TextStyle(
+                            fontFamily: 'Segoe',
+                          ),
                         ),
+                        onPressed: () {
+                          setState(() {
+                            bought = !bought;
+                          });
+                          print('Course bought..');
+                        },
+                        style: ElevatedButton.styleFrom(elevation: 0.0),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0.0,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () => print('Added to cart'),
-                      child: Text(
-                        'Add to cart',
-                        style: TextStyle(
-                          color: Colors.teal,
-                          fontFamily: 'Segoe',
+                    )
+                  : Column(
+                      ///[Buy Now and Add to Cart Buttons]
+                      ///although Column is not required here I have added for simplicity.
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              print('Buying now');
+                              setState(() {
+                                bought = !bought;
+                              });
+                            },
+                            child: Text(
+                              'Buy Now',
+                              style: TextStyle(
+                                fontFamily: 'Segoe',
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(elevation: 0.0),
+                          ),
                         ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        elevation: 0.0,
-                      ),
+                        addedToCart
+                            ? Container(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.teal,
+                                  ),
+                                  onPressed: () {
+                                    print("Added to cart..");
+                                    setState(() {
+                                      addedToCart = !addedToCart;
+                                    });
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      elevation: 0.0, primary: Colors.white),
+                                ),
+                              )
+                            : Container(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    print('Added to cart');
+                                    setState(() {
+                                      addedToCart = !addedToCart;
+                                    });
+                                  },
+                                  child: Text(
+                                    'Add to cart',
+                                    style: TextStyle(
+                                      color: Colors.teal,
+                                      fontFamily: 'Segoe',
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                    elevation: 0.0,
+                                  ),
+                                ),
+                              ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
               SizedBox(height: 10),
+
+              ///Below widgets can be implemented by adding a [MarkDown].
               Card(
                 elevation: 0.0,
                 child: Column(
