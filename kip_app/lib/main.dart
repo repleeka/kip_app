@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 // import 'package:kip_app/screens/authenticate/toggleFormsWidget.dart';
 import 'package:kip_app/screens/homeWidget/drawer.dart';
 import 'package:kip_app/screens/homeWidget/home.dart';
+// import 'package:kip_app/shared/videoPlayer/my_video_player.dart';
+// import 'package:video_player/video_player.dart';
 
 // import 'package:kip_app/screens/premiumWidget/premium_drawer.dart';
 // import 'package:kip_app/screens/premiumWidget/premium_home.dart';
@@ -35,6 +37,20 @@ class MyApp extends StatelessWidget {
         ///for [normal (non-premium screens)] enable the following widgets:
         body: Home(),
         drawer: DrawerWidget(),
+
+        ///[Testing Area for the Video player widget]
+        // appBar: AppBar(
+        //   title: Text('Video Player'),
+        // ),
+        // body: MyVideoPlayer(
+        //   videoPlayerController: VideoPlayerController.asset(
+        //     'lib/videos/01.mp4',
+        //   ),
+        //   autoplay: false,
+        //   loop: true,
+        //   // videoPlayerController: VideoPlayerController.network(
+        //   // 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
+        // ),
       ),
     );
   }
