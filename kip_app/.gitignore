@@ -2,6 +2,7 @@
 lib/demo/**
 lib/demo/demoTabBar.dart
 lib/videos
+lib/assets/image
 
 # Miscellaneous
 *.class
