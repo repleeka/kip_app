@@ -57,6 +57,7 @@ flutter:
     - lib/assets/image/02.jpg
     - lib/assets/image/kiplogo01.png
     - lib/assets/image/kiplogo02.png
+    - lib/videos/01.mp4
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
