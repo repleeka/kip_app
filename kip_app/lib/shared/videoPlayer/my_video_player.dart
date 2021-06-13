@@ -31,7 +31,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
       videoPlayerController: widget.videoPlayerController,
       autoPlay: widget.autoplay,
       looping: widget.loop,
-      // aspectRatio: 16 / 9,
+      aspectRatio: 16 / 9,
       allowPlaybackSpeedChanging: true,
       autoInitialize: true,
       errorBuilder: (context, errorMessage) => Center(
@@ -55,8 +55,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
     // bool isTapped = false;
     return Center(
       child: Container(
-        // color: Colors.black,
-        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+        // padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
         child: Chewie(controller: _chewieController),
       ),
     );
